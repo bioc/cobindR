@@ -54,7 +54,6 @@ export(read.transfac.pfm,
 import(
   biomaRt,
   methods,
-  gmp,
   Biostrings,
   BSgenome,
   rtfbs,

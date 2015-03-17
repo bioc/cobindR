@@ -5,6 +5,11 @@
 ###############################################################################
 ##for conversion from PFM to PWM (MEME format)
 
+# In order to minimize dependencies, I removed gmp from the Imports field
+# and from the NAMESPACE. I hope that's OK with you. Please let me know or
+# ask on the bioc-devel mailing list if you have questions about this.
+# Thanks! -- Herv\'e Page\`es (hpages@fredhutch.org) -- March 17, 2015.
+
 # require("gmp") # for factorize() function
 
 
