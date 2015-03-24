@@ -14,6 +14,20 @@ importFrom('mclust',
            mclust2Dplot,
            mclustBIC)
 
+importFrom('gmp',
+           lcm.bigz)
+
+# Import all packages listed as Imports or Depends
+import(
+  methods,
+  rtfbs,
+  BiocGenerics,
+  IRanges,
+  Biostrings,
+  BSgenome,
+  biomaRt
+)
+
 exportClasses(cobindr, configuration, SeqObj)
 
 exportMethods(detrending,
@@ -50,12 +64,3 @@ export(read.transfac.pfm,
        generate.background,
 		cobindr, seqObj, cobindRConfiguration)
 
-# Import all packages listed as Imports or Depends
-import(
-  biomaRt,
-  methods,
-  Biostrings,
-  BSgenome,
-  rtfbs,
-  IRanges
-)

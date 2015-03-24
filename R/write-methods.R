@@ -215,13 +215,13 @@ function(x, file=NULL){
 		bs.ranges = get.bindingsite.ranges(x)
 		bs_tab = data.frame(as.character(x@binding_sites$seqObj_uid), 
 			as.character(seqnames(bs.ranges)),
-			as.character(slot(bs.ranges, "elementMetadata")$elementMetadata.pwm),
-			start(slot(bs.ranges, "ranges")),
-			end(slot(bs.ranges, "ranges")),
-			width(slot(bs.ranges, "ranges")),
-			as.character(slot(bs.ranges, "strand")),
-			slot(bs.ranges, "elementMetadata")$elementMetadata.score,
-			as.character(slot(bs.ranges, "elementMetadata")$elementMetadata.seq))
+			as.character(mcols(bs.ranges)$mcols.pwm),
+			start(bs.ranges),
+			end(bs.ranges),
+			width(bs.ranges),
+			as.character(strand(bs.ranges)),
+			mcols(bs.ranges)$mcols.score,
+			as.character(mcols(bs.ranges)$mcols.seq))
 		
 		colnames(bs_tab) = c("seqObj_uid", "seqObj_name", "pwm", "hit_start", "hit_end", "hit_width", "hit_strand", "hit_score", "hit_sequence")
 		
@@ -423,7 +423,7 @@ function(x) {
   res = with(bs.df, GRanges(seqnames=sequence_names,
                            ranges=IRanges(start, end, names=uid),
                             strand=strand,seqlengths=sequence_lengths,
-                           elementMetadata=data.frame(pwm=pwm, score=score, source = source, seq=seq)) )
+                           mcols=data.frame(pwm=pwm, score=score, source = source, seq=seq)) )
   return(res)
 }
 )

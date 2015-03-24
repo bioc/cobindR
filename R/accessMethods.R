@@ -22,7 +22,7 @@ setMethod("pairs_of_interest", signature =  "cobindr", definition = function(x) 
 # SeqObj
 setMethod("uid", signature =  "SeqObj", definition = function(x) x@uid)
 setMethod("name", signature =  "SeqObj", definition = function(x) x@name)
-setMethod("species", signature =  "SeqObj", definition = function(x) x@species)
+setMethod("species", signature =  "SeqObj", definition = function(object) object@species)
 setMethod("location", signature =  "SeqObj", definition = function(x) x@location)
 setMethod("comment", signature =  "SeqObj", definition = function(x) x@comment)
 setMethod("sequence", signature =  "SeqObj", definition = function(x) x@sequence)
@@ -36,7 +36,7 @@ setMethod("sequence_type", signature =  "configuration", definition = function(x
 setMethod("bg_sequence_source", signature =  "configuration", definition = function(x) x@bg_sequence_source)
 setMethod("bg_sequence_origin", signature =  "configuration", definition = function(x) x@bg_sequence_origin)
 setMethod("bg_sequence_type", signature =  "configuration", definition = function(x) x@bg_sequence_type)
-setMethod("species", signature =  "configuration", definition = function(x) x@species)
+setMethod("species", signature =  "configuration", definition = function(object) object@species)
 setMethod("downstream", signature =  "configuration", definition = function(x) x@downstream)
 setMethod("upstream", signature =  "configuration", definition = function(x) x@upstream)
 setMethod("max_distance", signature =  "configuration", definition = function(x) x@max_distance)
@@ -77,10 +77,11 @@ setReplaceMethod("sequence_type", signature = c("configuration", "character"),
           x@sequence_type <- value
           x
       })
-setReplaceMethod("species", signature = c("configuration", "character"),
-    definition = function(x, value){
-        x@species <- value
-        x
+setReplaceMethod("species", signature = "configuration",
+    definition = function(object, value){
+        stopifnot(is.character(value))
+        object@species <- value
+        object
     })
 setReplaceMethod("downstream", signature = c("configuration", "numeric"),
      definition = function(x, value){
@@ -172,10 +173,11 @@ definition = function(x, value){
     x@name <- value
     x
 })
-setReplaceMethod("species", signature = c("SeqObj", "character"),
- definition = function(x, value){
-     x@species <- value
-     x
+setReplaceMethod("species", signature = "SeqObj",
+ definition = function(object, value){
+     stopifnot(is.character(value))
+     object@species <- value
+     object
  })
 setReplaceMethod("location", signature = c("SeqObj", "character"),
   definition = function(x, value){

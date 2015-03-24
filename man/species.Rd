@@ -2,9 +2,9 @@
 \alias{species}
 \alias{species<-}
 \alias{species,configuration-method}
-\alias{species<-,configuration,character-method}
+\alias{species<-,configuration-method}
 \alias{species,SeqObj-method}
-\alias{species<-,SeqObj,character-method}
+\alias{species<-,SeqObj-method}
 
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
@@ -14,14 +14,14 @@
   species of cobindR configuration or SeqObj
 }
 \usage{
-\S4method{species}{configuration}(x)
-\S4method{species}{configuration,character}(x) <- value
-\S4method{species}{SeqObj}(x)
-\S4method{species}{SeqObj,character}(x) <- value
+\S4method{species}{configuration}(object)
+\S4method{species}{configuration}(object) <- value
+\S4method{species}{SeqObj}(object)
+\S4method{species}{SeqObj}(object) <- value
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{x}{
+  \item{object}{
   a cobindR configuration object
 }
   \item{value}{
