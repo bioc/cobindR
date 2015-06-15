@@ -1,1 +1,1 @@
-BiocGenerics:::testPackage('cobindR')
+BiocGenerics:::testPackage('cobindR', pattern="runit_.*\\.R$")
