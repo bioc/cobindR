@@ -64,7 +64,7 @@ function(x, background_scan = FALSE) {
 		species.idx = grep(x@species, av.species, ignore.case=T)
 		#load species genome
 		if(!require(av.species[tail(species.idx, 1)], character.only=TRUE))
-           stop('package', av.species[tail(species.idx, 1)], 'not installed - use biocLite for downloading')# using the most recent version
+           stop('package', av.species[tail(species.idx, 1)], 'not installed - use BiocManager for downloading')# using the most recent version
 
 		tmp.species = unlist(strsplit(av.species[tail(species.idx, 1)],"\\."))[2]
 		cat('retrieving sequences for gene ids in ',seq.sources,'...\n')
@@ -111,7 +111,7 @@ function(x, background_scan = FALSE) {
 			stop('Species \'', x@species, '\' not in package BSgenome available')
 		
 		if(!require(av.species[tail(species.idx, 1)], character.only=TRUE))
-           stop('package', av.species[tail(species.idx, 1)], 'not installed - use biocLite for downloading')# using the most recent version
+           stop('package', av.species[tail(species.idx, 1)], 'not installed - use BiocManager for downloading')# using the most recent version
 	
 		# read input file and retrieve sequences
 		seq.iterator = 0
